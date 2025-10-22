@@ -1,0 +1,28 @@
+- name: "code-review-agent"
+    display_name: "Code Review Assistant"
+    type: "MCP Client"
+    goal: "Perform static code analysis and suggest improvements for maintainability, performance, and security."
+    perception: "Analyzes GitHub PRs or AzDo Repos; understands context of changes."
+    plan:
+      - "Fetch code diff from repo"
+      - "Use LLM for review insights"
+      - "Comment or tag reviewer if issues found"
+    act: "Posts actionable comments or approvals via MCP/AzDo APIs."
+    capabilities:
+      - "Code smell detection"
+      - "Style and standards compliance"
+      - "LLM-assisted suggestions"
+    llm_model:
+      provider: "OpenAI"
+      model: "gpt-4o-mini"
+      temperature: 0.3
+    tools:
+      - "pylint"
+      - "flake8"
+      - "mcp-azdo-client"
+    integration:
+      registry: "mcp://agents/code-review"
+      triggers:
+        - "PR.Created"
+        - "Commit.Pushed"
+      outputs: ["review_report", "comment_thread"]
