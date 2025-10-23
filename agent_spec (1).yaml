@@ -1,0 +1,31 @@
+agents:
+
+  - name: "Group-disability-insurance-underwriting-agent"
+    display_name: "Group Disability Insurance Underwriting agent"
+    type: "AI Copilot"
+    goal: "To Ananlyse group disability insurance documents and help underwriter with decision making"
+    perception: "Understands group disability insurance rules and policies."
+    plan:
+      - "Analyse group insurance documents"
+      - "Analyse the impact"
+      - "Risk Assessment"
+    act: "Risk Assessment and Recommendation"
+    capabilities:
+      - "Multi Document Analyzing Capabilities(PDF/TXT/CSV)"
+      - "Rules Analyzing"
+      - "Decision Maker for Underlying Capabilites"
+    llm_model:
+      provider: "OpenAI"
+      model: "gpt-4o"
+      temperature: 0.4
+    tools:
+      - "pandas"
+      - "openAI API key"
+      - "Py2PDF"
+      - "openpyxl"
+      - "streamlit"
+    integration:
+      registry: "mcp://agents/group-insurance-rules"
+      triggers:
+        - "Rule.Update"
+      outputs: ["risk_assessment_score", "validation_results"]
