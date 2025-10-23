@@ -1,0 +1,30 @@
+agents:
+  - name: "Smart Assignment & Resolution Agent"
+    display_name: "Smart Assignment & Resolution Agent"
+    type: "Client"
+    goal: "Perform automated resolution group assignment and provide incident resolution guidance to support group"
+    perception: "Integrate with ServiceNow or Jira; understands the incident description and events"
+    plan:
+      - "Fetch context from knowledge repository"
+      - "Use LLM/ML for user group prediction"
+      - "Provide resolution guideline"
+      - "Get user feedback"
+    act: "Assign the incident to the right resolution group"
+    capabilities:
+      - "Assignment"
+      - "LLM-assisted Resolution suggestion"
+    llm_model:
+      provider: "OpenAI"
+      model: "gpt-4o-mini"
+      temperature: 0.3
+    tools:
+      - "pylint"
+      - "flake8"
+      - "streamlit"
+    integration:
+      registry: ""
+      triggers:
+        - ""
+      outputs:
+        - "feedback report"
+        - "solution report"
