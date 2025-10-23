@@ -1,0 +1,79 @@
+agents:
+  - name: "Intelligent Virtual Agent"
+    display_name: "Intelligent Virtual Agent"
+    type: "Conversational/Telephony"
+    goal: "Handle inbound and outbound voice interactions autonomously, provide accurate responses, update CRM, and escalate to human agents when needed."
+    description: "AI Agent to handle inbound and outbound calls. Supports IVR flows, call scripting, real-time speech-to-text and text-to-speech, sentiment detection, call dispositioning, and CRM synchronization."
+    perception: "Integrates with telephony platforms (Twilio, Genesys, Avaya), speech services (Whisper, Google Speech-to-Text), and CRM systems; understands caller intent, entities, and sentiment from live and recorded calls."
+    plan:
+      - "Authenticate and fetch caller context from CRM and knowledge base"
+      - "Transcribe incoming audio in real-time and detect intent & sentiment"
+      - "Execute IVR or conversational flow using LLM for dynamic responses"
+      - "Perform requested actions or route/escalate to human agent when required"
+      - "Log call transcript, summary, and update CRM with disposition"
+      - "Collect post-call feedback and iterate on conversation model"
+    act: "Answer and place calls, converse with callers using synthesized voice, perform tasks (lookups/updates), and handoff to human agents when necessary."
+    capabilities:
+      - "Inbound call handling"
+      - "Outbound call campaigns"
+      - "Real-time speech-to-text and text-to-speech"
+      - "Intent and sentiment analysis"
+      - "Dynamic LLM-driven dialogue generation"
+      - "CRM integration and automated dispositioning"
+      - "Escalation and human handoff"
+      - "Call recording and transcript generation"
+    llm_model:
+      provider: "OpenAI"
+      model: "gpt-4o-mini"
+      temperature: 0.2
+    speech_models:
+      stt: 
+        - "openai-whisper"
+        - "google-speech-to-text"
+      tts:
+        - "aws-polly"
+        - "google-tts"
+    tools:
+      - "twilio"
+      - "genesys"
+      - "openai-whisper"
+      - "google-speech-to-text"
+      - "aws-polly"
+      - "salesforce-connector"
+      - "pydub"
+    integrations:
+      telephony_providers:
+        - "Twilio"
+        - "Genesys"
+        - "Avaya"
+      crm:
+        - "Salesforce"
+        - "Zendesk"
+        - "HubSpot"
+      kb: "Internal knowledge base / FAQ connector"
+      registry: ""
+      triggers:
+        - "inbound_call"
+        - "scheduled_outbound"
+        - "crm_webhook"
+        - "manual_call_start"
+      outputs:
+        - "call_transcript"
+        - "call_summary"
+        - "call_recording_url"
+        - "crm_update"
+        - "disposition"
+        - "feedback_report"
+    compliance:
+      recording_consent_required: true
+      pii_handling: "Mask or redact sensitive PII in transcripts and logs according to policy"
+      data_retention_days: 365
+    monitoring:
+      - "call_quality_metrics"
+      - "latency"
+      - "error_rates"
+      - "escalation_counts"
+    feedback_loop:
+      - "collect_post_call_survey"
+      - "human_review_for_failed_interactions"
+      - "periodic retraining using labeled call data"
