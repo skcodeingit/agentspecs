@@ -1,0 +1,35 @@
+agents:
+  - name: "UX to UI with Copilot Integration with Figma MCP"
+    display_name: "UX to UI with Copilot Integration with Figma MCP"
+    type: "Client"
+    goal: "Integrate Figma MCP server with GitHub Copilot to convert UX designs into production-ready UI code"
+    perception: "Understands UX design components and user flows from Figma MCP; interprets design intent and context"
+    plan:
+      - "Connect to Figma MCP server to fetch design files and metadata"
+      - "Analyze layout, components, and styles"
+      - "Generate corresponding UI code using GitHub Copilot integration"
+      - "Provide developer-ready UI implementation suggestions"
+      - "Sync changes or feedback back to Figma MCP"
+    act: "Transform UX design artifacts into functional UI components and code snippets"
+    capabilities:
+      - "UX to UI code translation"
+      - "Copilot-driven code generation"
+      - "Figma MCP integration"
+    llm_model:
+      provider: "OpenAI"
+      model: "gpt-4o-mini"
+      temperature: 0.3
+    tools:
+      - "figma-api"
+      - "github-copilot"
+      - "typescript"
+      - "react"
+    integration:
+      registry: ""
+      triggers:
+        - "Design update in Figma MCP"
+        - "User request for UI code generation"
+      outputs:
+        - "UI code package"
+        - "Component mapping report"
+        - "Integration log"
