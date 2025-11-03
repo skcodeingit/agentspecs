@@ -1,0 +1,114 @@
+name: "Prompt Registry MCP Server"
+version: "1.0.0"
+description: "An MCP server that manages prompt storage, retrieval, guardrail validation, and feedback signals for GHCP and multi-agent systems."
+type: "mcp-server"
+
+installMethod: "pip"
+installInstructions: "pip install prompt-registry-mcp"
+dependencies: "Python 3.10+, FastAPI, FastMCP, SQLAlchemy"
+
+sdlcService: "production"
+securityLevel: "internal"
+solutions: 
+  - "Prompt Management"
+  - "Guardrail Enforcement"
+  - "Cross-Agent Prompt Reuse"
+  - "GHCP Prompt Orchestration"
+tags: ["mcp", "prompt-registry", "agent", "ghcp", "guardrails"]
+
+industry: "enterprise-platform-engineering"
+
+authorName: "Prompt Registry Team"
+authorEmail: "prompt-registry@enterprise.com"
+authorTeam: "AI Platforms & Integrations"
+
+experienceLevel: "senior"
+expertiseAreas: 
+  - "MCP Server Development"
+  - "Prompt Engineering"
+  - "OpenAI & LLM Integrations"
+  - "Metadata Registries"
+  - "Enterprise Guardrails"
+
+goal: "To provide a central registry for prompts, enforce safety guardrails, track prompt feedback, and enable agents to reuse high-quality prompts across solutions."
+
+perception: "This server understands prompts, responses, user intent, guardrails, application context, and can suggest or filter prompts automatically."
+
+capabilities:
+  - "Store prompts and responses automatically from GHCP Agent Mode"
+  - "Retrieve prompts by applicationId, domain, tags, or solution nature"
+  - "Like/dislike prompts for ranking and training feedback"
+  - "Guardrail scanning for unsafe, disallowed, or non-compliant prompts"
+  - "Prompt suggestion based on application context and historical behavior"
+  - "Prompt versioning and audit logs"
+  - "OpenAI-powered semantic prompt matching"
+  - "MCP-compatible tool definitions for prompt access and mutation"
+
+performance:
+  accuracy: "98% for semantic prompt matching"
+  speed: "5-20 ms for retrieval"
+  reliability: "99.99% for prompt read/write operations"
+
+integration:
+  platforms: 
+    - "GitHub"
+    - "GitHub Copilot (GHCP)"
+    - "Azure OpenAI / OpenAI"
+    - "Internal Agent Marketplace"
+  apis:
+    - "OpenAI GPT-4 / GPT-4o / GPT-5"
+    - "Guardrail Service APIs"
+    - "GHCP Marketplace APIs"
+    - "REST"
+    - "MCP Protocol"
+  formats:
+    - "JSON"
+    - "YAML"
+    - "Markdown"
+    - "MCP Tool Spec"
+
+dataModel:
+  prompt:
+    fields:
+      - id
+      - name
+      - content
+      - application_id
+      - solution_type
+      - tags
+      - guardrail_status
+      - version
+      - likes
+      - dislikes
+      - created_at
+      - updated_at
+  response:
+    fields:
+      - id
+      - prompt_id
+      - content
+      - execution_time
+      - model_used
+      - is_safe
+      - created_at
+
+guardrails:
+  types:
+    - "Security"
+    - "PHI/PII"
+    - "Offensive Content"
+    - "Model Misuse"
+    - "Data Leakage"
+  enforced: true
+  integration: "External Guardrail Service + Local Rule Engine"
+
+ghcpIntegration:
+  enabled: true
+  features:
+    - "Run prompts in agent mode"
+    - "Automatically store executed prompts + responses"
+    - "Allow prompt rating from GHCP"
+    - "Suggest prompts inside GHCP workflows"
+    - "MCP tools accessible from GHCP Agents"
+
+tools:
